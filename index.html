@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
+  <title>Расписание дежурств</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #121212;
+      color: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #555;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    td {
+      background-color: #222;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Список</h1>
+
+  <table>
+    <thead>
+      <tr id="schedule-table-header"></tr>
+    </thead>
+    <tbody id="schedule-table-body"></tbody>
+  </table>
+
+  <button id="shareBtn" onclick="copySiteLink()">Поделиться</button>
+
+  <script>
+    function copySiteLink() {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        alert("Ссылка скопирована!");
+      }, function(err) {
+        alert("Ошибка копирования: " + err);
+      });
+    }
+  </script>
+
+  <script type="module" src="./config.js"></script>
+  <script type="module" src="./db.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
